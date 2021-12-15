@@ -3,14 +3,23 @@ import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import MovieList from './MovieList';
 
-const DeleteMovieModal = () => {
+const DeleteMovieModal = (props) => {
   const {push} = useHistory();
   const { id } = useParams();
+  const { toggleIsDeleting } = props;
+  const { deleteMovie } = props;
  
+  console.log(deleteMovie);
+
   const handleDelete = (e)=> {
     e.preventDefault();
-    axios.delete(`/api/movies/${id}`)
-      .then( res => props.deleteMovie(id))
+    axios.delete(`http://localhost:9000/api/movies/${id}`)
+      .then( res => {
+        deleteMovie(id);
+        toggleIsDeleting();
+        push('/movies');
+
+      })
       .catch( err => console.error(err))
   } 
     return (<div id="deleteEmployeeModal">
@@ -18,11 +27,11 @@ const DeleteMovieModal = () => {
             <div className="modal-content">
                 <form>
                     <div className="modal-header">						
-                        <h4 className="modal-title">Delete Employee</h4>
+                        <h4 className="modal-title">Delete Movie</h4>
                         <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div className="modal-body">					
-                        <p>Are you sure you want to delete these Records?</p>
+                        <p>Are you sure you want to delete this movie?</p>
                         <p className="text-warning"><small>This action cannot be undone.</small></p>
                     </div>
                     <div className="modal-footer">
