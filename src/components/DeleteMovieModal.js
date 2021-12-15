@@ -1,6 +1,18 @@
 import React from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import axios from 'axios';
+import MovieList from './MovieList';
 
 const DeleteMovieModal = () => {
+  const {push} = useHistory();
+  const { id } = useParams();
+ 
+  const handleDelete = (e)=> {
+    e.preventDefault();
+    axios.delete(`/api/movies/${id}`)
+      .then( res => props.deleteMovie(id))
+      .catch( err => console.error(err))
+  } 
     return (<div id="deleteEmployeeModal">
         <div className="modal-dialog">
             <div className="modal-content">
@@ -15,7 +27,7 @@ const DeleteMovieModal = () => {
                     </div>
                     <div className="modal-footer">
                         <input type="button" className="btn btn-default" data-dismiss="modal" value="Cancel"/>
-                        <input type="submit" className="btn btn-danger" value="Delete"/>
+                        <input onClick={handleDelete} type="submit" className="btn btn-danger" value="Delete"/>
                     </div>
                 </form>
             </div>

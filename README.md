@@ -50,14 +50,14 @@ CRUD applications are the foundation of most web applications. Being able to man
 * [X] Clone your OWN version of the repository in your terminal
 * [X] cd into the project base directory `cd web-module-project-HTTP`
 * [X] Download server dependencies by running `npm install`
-* [ ] Run the local web server by running `node server.js`
-* [ ] Open a new terminal window and cd into the client code `cd client`
-* [ ] Download project dependencies by running `npm install`
-* [ ] Start up the app using `npm start`
+* [X] Run the local web server by running `node server.js` /// n/a
+* [X] Open a new terminal window and cd into the client code `cd client` /// n/a
+* [X] Download project dependencies by running `npm install` /// n/a
+* [X] Start up the app using `npm start` /// 
 
 ### Task 2: Project Requirements
 #### Editing a Movie
-> *Let's start by walking through the process of adding the routing, component and service calls need for resource updating*
+> *Let's start byXwalking through the process of adding the routing, component and service calls need for resource updating*
 
 * [ ] First, we need to be able to navigate to the edit movie component. In App.js, add in the `<EditMovieForm> `component to the supplied edit route.
 
