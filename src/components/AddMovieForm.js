@@ -4,7 +4,6 @@ const { nanoid } = require("nanoid");
 import axios from 'axios';
 
 const AddMovieForm = (props) => {
-  const { push } = useHistory();
 
   const [movie, setMovie] = useState({
     id: nanoid(5),
@@ -30,11 +29,12 @@ const AddMovieForm = (props) => {
     axios.post(`http://localhost:9000/api/movies`, movie)
         .then(res=>{
             addMovie(movie);
-            push(`/movies/${movie.id}`);
         })
         .catch(err=>{
             console.log(err);
         })
+    
+    
   }
 
   return(<div className="col">
