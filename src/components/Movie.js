@@ -4,7 +4,7 @@ import { Link, useParams, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import DeleteMovieModal from './DeleteMovieModal';
 
-const Movie = (props) => {
+const Movie = (props)=> {
     const { addToFavorites } = props;
     const { deleteMovie } = props;
     const [movie, setMovie] = useState('');
@@ -22,7 +22,7 @@ const Movie = (props) => {
             })
     }, [id]);
 
-    const toggleIsDeleting = () => {
+    const toggleIsDeleting = ()=> {
         setIsDeleting(!isDeleting);
     }
 

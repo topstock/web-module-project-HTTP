@@ -18,7 +18,6 @@ const DeleteMovieModal = (props) => {
         deleteMovie(id);
         toggleIsDeleting();
         push('/movies');
-
       })
       .catch( err => console.error(err))
   } 
